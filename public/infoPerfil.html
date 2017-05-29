@@ -1,0 +1,97 @@
+
+<form style="width:400px; margin: 0 auto;" method="POST" action="/info" id="fm_info">
+    <h2>Agregar información adicional</h2>
+    <div class="form-group">
+        <label for="in_nombre" class="control-label"> Nombre </label><br>
+        <input type="text" name="nombre" id="in_nombre" maxlength="50" minlength="4" placeholder="Nombre(s)" required><br>
+    </div>
+
+    <div class="form-group">
+        <label for="in_apPat" class="control-label"> Apellido Paterno </label><br>
+        <input type="text" name="apPat" id="in_apPat" maxlength="50" minlength="4" placeholder="Apellido Paterno" required><br>
+    </div>
+
+    <div class="form-group">
+        <label for="in_apMat" class="control-label"> Apellido Materno </label><br>
+        <input type="text" name="apMat" id="in_apMat" maxlength="50" minlength="4" placeholder="Apellido Materno" required><br>
+    </div>
+
+    <div class="form-group">
+        <label for="rd_genero" class="control-label"> Género </label><br>
+        <div id="rd_genero">
+            <input type="radio" name="sexo" id="rb_masculino" value="m">
+            <label for="rb_masculino"> Masculino</label>
+            <input type="radio" name="sexo" id="rb_fememnino" value="f" >
+            <label for="rb_fememnino"> Femenino </label>
+        </div><br>
+    </div>
+
+    <div class="form-group">
+        <label for="sct_estado" class="control-label"> Estado donde vives </label><br>
+        <select name="estado" id="sct_estado">
+            <option value="Aguascalientes">Aguascalientes</option>
+            <option value="Baja California">Baja California</option>
+            <option value="Baja California Sur">Baja California Sur</option>
+            <option value="Campeche">Campeche</option>
+            <option value="Chiapas">Chiapas</option>
+            <option value="Chihuahua">Chihuahua</option>
+            <option value="Coahuila">Coahuila</option>
+            <option value="Colima">Colima</option>
+            <option value="Distrito Federal">Distrito Federal</option>
+            <option value="Durango">Durango</option>
+            <option value="Estado de Mexico">Estado de México</option>
+            <option value="Guanajuato">Guanajuato</option>
+            <option value="Guerrero">Guerrero</option>
+            <option value="Hidalgo">Hidalgo</option>
+            <option value="Jalisco">Jalisco</option>
+            <option value="Michoacan">Michoacán</option>
+            <option value="Morelos">Morelos</option>
+            <option value="Nayarit">Nayarit</option>
+            <option value="Nuevo Leon">Nuevo León</option>
+            <option value="Oaxaca">Oaxaca</option>
+            <option value="Puebla">Puebla</option>
+            <option value="Queretaro">Querétaro</option>
+            <option value="Quintana Roo">Quintana Roo</option>
+            <option value="San Luis Potosi­">San Luis Potosí­</option>
+            <option value="Sinaloa">Sinaloa</option>
+            <option value="Sonora">Sonora</option>
+            <option value="Tabasco">Tabasco</option>
+            <option value="Tamaulipas">Tamaulipas</option>
+            <option value="Tlaxcala">Tlaxcala</option>
+            <option value="Veracruz">Veracruz</option>
+            <option value="Yucatan">Yucatán</option>
+            <option value="Zacatecas">Zacatecas</option>
+        </select><br>
+    </div>
+
+    <div class="form-group">
+        <label for="dp_fechaNac" class="control-label">Elige tu fecha de nacimiento</label><br>
+        <div id="dp_fechaNac"></div><br>
+    </div>
+
+    <div class="form-group">
+        <fieldset>
+            <legend class="control-label"> Gustos generales </legend>
+            <div id="ckb_gustos">
+                <input type="checkbox" id="in_musica" name="gustos" value="musica"><label for="in_musica"> Música </label>
+                <input type="checkbox" id="in_deportes" name="gustos" value="deportes"> <label for="in_deportes"> Deportes </label>
+                <input type="checkbox" id="in_baile" name="gustos" value="baile"> <label for="in_baile"> Baile </label>
+                <input type="checkbox" id="in_lectura" name="gustos" value="lectura"> <label for="in_lectura"> Lectura </label>
+            </div>
+        </fieldset><br>
+    </div>
+
+    <div class="form-group">
+        <fieldset>
+            <legend class="control-label"> Que nivel de conocimiento tiene de los siguientes lenguajes de programación tiene </legend><br>
+            <label for="sld_php"> PHP</label><span id="nivelPhp"></span></span><br>
+            <div id="sld_php"></div> <br>
+            <label for="sld_java"> Java</label><span id="nivelJava"></span><br>
+            <div id="sld_java"></div><br>
+            <label for="sld_jquery">Jquery</label><span id="nivelJquery"></span><br>
+            <div id="sld_jquery"></div><br>
+        </fieldset>
+    </div>
+
+    <button type="submit" id="btn_submit">Guardar cambios</button>
+</form>
