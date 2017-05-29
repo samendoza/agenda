@@ -41,78 +41,7 @@
     <script src="js/contacto.js"></script>
     <script src="js/perfil.js"></script>
     <script src="js/infoPerfil.js"></script>
- 
-    <script>
-        $(document).ready(function(){
-            $contenedor = $("#contenedor");
-            $("#editarPerfil").click(function(){
-                $contenedor.empty();
-                $contenedor.load("editarPerfil.html", manejoError);
-            });
-               
-            $("#buscarCont").click(function(){
-                $contenedor.empty();
-                $contenedor.load("buscarContac.html", manejoError);
-            });
-
-            $("#agregarCont").click(function(){
-                $contenedor.empty();
-                $contenedor.load("addContac.html", manejoError);
-            });
-
-            $("#home").click(function(){
-                $contenedor.empty();
-                $contenedor.load("home.html", manejoError);
-            });
-
-            $("#infoPerfil").click(function(){
-                $contenedor.empty();
-                $contenedor.load("infoPerfil.html",exito);
-            });
-
-
-           // $("#fmEditar").submit(editarPerfil);
-            /*************************************************************************************/
-
-            $(document).on("submit", ".fmEditar", editarPerfil);
-            $(document).on("keyup",".busqueda", busqueda);
-            $(document).on("click", ".rbCategoria", busqueda);
-            $(document).on("submit", ".fmAddCont", agregar);
-            $(document).on('click', '.borrar', function (event) {
-                event.preventDefault();
-                $(this).closest('tr').fadeOut();
-            });
-
-            var posting = $.get( "/imagen", {});
-            posting.done(function( data ) {
-                $("#imgPerfil").attr("src", data);
-            });
-
-
-            /********Para formulario de agregar()*********************/
-            $(document).on("focusout", "#nombre", nombreValido);
-            $(document).on("focusout", "#email", emailValido);
-            $(document).on("focusout", "#tel", telValido);
-            $(document).on("focusout", "#cel", celValido);
-            $(document).on("focusout", "#dir", dirValida);
-            $(document).on("change", "#foto", validarArchivo);
-            $("#contenedor").on("submit", "#fm_info", sub);
-
-            /*********************************************************/
-
-        });
-
-        function manejoError(response, status, xhr ) {
-            if ( status == "error" ) {
-              var msg = "Sorry but there was an error: ";
-              console.log( msg + xhr.status + " " + xhr.statusText );
-            }
-        }
-
-        function exito(response, status, xhr ) {
-            bindElements();
-        }
-    </script>
+    <script src="js/home.js"></script>
   </head>
 
   <body>

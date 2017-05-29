@@ -85,7 +85,7 @@ class ContactosController extends Controller {
 	}
 
 	public function busqueda(Request $req){
-		//DB::enableQueryLog();
+		DB::enableQueryLog();
 		$busqueda="";
 		$usuario = session('usuario'); //usando el helper
 		$busqueda = $req -> busqueda;

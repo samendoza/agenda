@@ -30,6 +30,7 @@ class WelcomeController extends Controller {
 	 */
 	public function index()
 	{
+        //session()->regenerate();
 		return view('login');
 	}
 

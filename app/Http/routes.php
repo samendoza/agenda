@@ -16,7 +16,8 @@ use App\Usuario;
 Route::get('/', 'WelcomeController@index');
 
 Route::post('login', 'LoginController@inicio');
-Route::get('home', function(){
+Route::get('/home', function(){
+
     if(session('usuario')=='')
         return redirect('/');
 	else
@@ -25,6 +26,10 @@ Route::get('home', function(){
 
 
 Route::get('/imagen', 'LoginController@imagen');
+Route::get('/usuario', function(){
+
+    return session('usuario');
+});
 
 
 Route::get('/contactos', 'ContactosController@busqueda');
@@ -50,12 +55,11 @@ Route::get('/registro', function(){
 Route::post('/verificar','LoginController@verificar');
 Route::post('/registrar', 'LoginController@registrar');
 Route::get('/logout', function(){
-	session_start(); 
-    session_unset();
-    session_destroy(); 
-	Session::flush(); // removes all session data
-	session()->regenerate();
-	//Auth::logout();
+
+	//Session::flush(); // removes all session data
+    //Auth::logout();
+    //session()->regenerate();
+    session()->forget('usuario');
 	return Redirect::action('WelcomeController@index');
 } );
 
@@ -71,33 +75,6 @@ Route::get('dom', function(){
 });
 
 Route::post('info', 'LoginController@guardarInfo');
-//Route::post('/registro/{user}', 'LoginController@verificarUsuario');
-
-
-	//$usuarios = Usuario::all();
-	/*foreach ($usuarios as $usuario) {
-    	echo $usuario->pass;
-	}*/
-
-	//$users = DB::table('usuarios')->select('usuario')->where('usuario','=','saul')->where('pass','=','123')->get();
-	//return $users;
-	
-	/*$users = DB::table('usuarios')
-					->select('count(*)')
-					->where([
-    						['usuario', '=', $usuario],
-    						['pass', '=', $pass]])
-					->get();
-		//return $users;
-		//$resultado = Usuario::inicioSesion($request -> usuario , $request -> pass);
-		return $users->usuario;*/
-
-//});
-
-//Route::post('login', 'LoginController@inicio');
-
-/*Route::get('home', 'HomeController@index');*/
-
 
 
 Route::controllers([
