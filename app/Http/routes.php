@@ -18,7 +18,7 @@ Route::get('/', 'WelcomeController@index');
 Route::post('login', 'LoginController@inicio');
 Route::get('/home', function(){
 
-    if(session('usuario')=='')
+    if(session('usuario')==null)
         return redirect('/');
 	else
 		return view('home');
@@ -56,10 +56,10 @@ Route::post('/verificar','LoginController@verificar');
 Route::post('/registrar', 'LoginController@registrar');
 Route::get('/logout', function(){
 
-	//Session::flush(); // removes all session data
+	Session::flush(); // removes all session data
     //Auth::logout();
-    //session()->regenerate();
-    session()->forget('usuario');
+    session()->regenerate();
+    //session()->forget('usuario');
 	return Redirect::action('WelcomeController@index');
 } );
 

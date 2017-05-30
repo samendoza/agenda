@@ -1,5 +1,5 @@
 <?php namespace App\Http\Controllers;
-
+use Session;
 class WelcomeController extends Controller {
 
 	/*
@@ -31,7 +31,9 @@ class WelcomeController extends Controller {
 	public function index()
 	{
         //session()->regenerate();
-		return view('login');
+        //Session::flush();
+      //  session()->regenerate();
+        return view('login');
 	}
 
 }

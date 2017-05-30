@@ -42,6 +42,7 @@
     <script src="js/perfil.js"></script>
     <script src="js/infoPerfil.js"></script>
     <script src="js/home.js"></script>
+
   </head>
 
   <body>

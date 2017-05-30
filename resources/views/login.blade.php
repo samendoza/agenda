@@ -7,6 +7,7 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
+    <meta name="_token" content="{{ csrf_token() }}">
     <link rel="icon" href="../../favicon.ico">
 
     <title>Agenda electrónica</title>
@@ -21,6 +22,7 @@
     <script src="js/login.js"></script>
     <script>
         $(document).ready(function(){ //hasta que la pagina este completamente cargada
+
             $("#avisoSes").hide();
             $("#fmInicioSesion").submit(iniciaSesion);
         });
@@ -34,7 +36,7 @@
       <form class="form-signin"  method="post" action="/login" id="fmInicioSesion">
         <h2 class="form-signin-heading">Inicia sesión</h2>
         <label for="inputEmail" class="sr-only">Usuario</label>
-        <input type="hidden" name="_token" value="{{csrf_token()}}">
+        <input type="hidden" name="_token" value="{{csrf_token()}}" id="token">
         <input type="text" name="usuario" id="usuario" class="form-control" placeholder="Usuario" required autofocus>
         <label for="inputPassword" class="sr-only">Contraseña</label>
         <input type="password" name="pass" id="pass" class="form-control" placeholder="Contraseña" required>
