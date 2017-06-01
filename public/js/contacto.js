@@ -149,6 +149,12 @@ function eliminar(btn){
             //alert(data);
            // busqueda();
         });
+        posting.done(function( data ) {
+            $('#respuesta').empty();
+            $("#myGrid").empty();
+            //alert(data);
+           // busqueda();
+        });
      //$(btn).parent('tr').fadeOut();
     }            
 }

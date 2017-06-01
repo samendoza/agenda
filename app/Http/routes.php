@@ -18,9 +18,9 @@ Route::get('/', 'WelcomeController@index');
 Route::post('login', 'LoginController@inicio');
 Route::get('/home', function(){
 
-    if(session('usuario')==null)
-        return redirect('/');
-	else
+   // if(session('usuario')==null)
+    //    return redirect('/');
+//	else
 		return view('home');
 });
 
@@ -75,9 +75,13 @@ Route::get('dom', function(){
 });
 
 Route::post('info', 'LoginController@guardarInfo');
-
+Route::post('pdf', 'PDFController@creaPDF');
 
 Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',
 ]);
+
+Route::get('/pagina', function(){
+   return view('pagina');
+});

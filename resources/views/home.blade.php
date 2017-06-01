@@ -14,6 +14,7 @@
     <link rel="icon" href="../../favicon.ico">
     <!--Slick grid-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="css2pdf/xepOnline.jqPlugin.js"></script>
     <link rel="stylesheet" href="slick/slick.grid.css" type="text/css"/>
     <link rel="stylesheet" href="slick/css/smoothness/jquery-ui-1.8.16.custom.css" type="text/css"/>
     <link rel="stylesheet" href="css/example.css" type="text/css"/>
@@ -42,6 +43,28 @@
     <script src="js/perfil.js"></script>
     <script src="js/infoPerfil.js"></script>
     <script src="js/home.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#formpdf").submit(function(event){
+                event.preventDefault();
+                var head = $("head").html();
+                var div = $("#container").html();
+                var token = $('meta[name="_token"]').attr('content');
+                
+                console.log($("#contenedor").html());
+                console.log($("head").html());
+                
+                $("#head").val(head);
+                $("#div").val(head);
+                var posting = $.post( "/pdf", {head: head, div: div, _token:token});
+                posting.done(function( data ) {
+                    alert(data);
+                });
+            });
+        });
+        
+    </script>
+    
 
   </head>
 
@@ -84,7 +107,7 @@
     </nav>
 
 
-    <div class="container">
+    <div class="container" id="container">
        
       <!-- Main component for a primary marketing message or call to action -->
       <div class="jumbotron" id="contenedor">
@@ -92,7 +115,7 @@
       
         <div>
             <h2> Bienvenido </h2>
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
         </div>
 
   
@@ -100,7 +123,15 @@
 
     </div> <!-- /container -->
 
-
+    <!--<a href="#" onclick="return xepOnline.Formatter.Format('contenedor',{render:'download'});">
+       descargar coomo pdf
+    </a>-->
+    <form id="formpdf" method="get">
+    <button id="pdf" type="submit"> Descargar pdf</button>
+    <input type="hidden" name="head" value="">
+    <input type="hidden" name="div" value="">
+    <input type="hidden" name="_token" value="{{csrf_token()}}">
+    </form>
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
